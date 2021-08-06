@@ -17,5 +17,6 @@ public:
 	char pad_0x038C[0xC]; //0x038C
 	CIFButton* m_moneyDropButton; //0x0398 
 	char pad_0x039C[0x54]; //0x039C
-
+    class CSOItem* GetItemBySlot(BYTE SlotIndex);
+	class CSOItem* GetItemBySlot(int slotId);
 }; //Size=0x03F0

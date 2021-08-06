@@ -20,3 +20,12 @@ const std::n_wstring *CTextStringManager::GetString(const wchar_t *identifier) {
 const std::n_wstring &CTextStringManager::FUN_008c9bb0(const std::n_wstring &identifier) {
     return reinterpret_cast<const std::n_wstring &(__thiscall *)(CTextStringManager *, const std::n_wstring &)>(0x008c9bb0)(this, identifier);
 }
+std::wstring* CTextStringManager::GetStringByNameStrID(std::wstring* NameStrID)
+{
+    return reinterpret_cast <std::wstring * (__thiscall*)(CTextStringManager*, std::wstring*)>(0x008C9BB0)(this, NameStrID);
+}
+
+std::wstring* CTextStringManager::GetStringTextByCode(const wchar_t* code)
+{
+    return reinterpret_cast<std::wstring * (__thiscall*)(CTextStringManager*, const wchar_t*)>(0x008C9C30)(this, code);
+}

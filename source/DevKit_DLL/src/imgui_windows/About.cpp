@@ -7,7 +7,7 @@ void About::MenuItem() {
     ImGui::MenuItem("About", 0, &bShow);
 }
 
-About::About() : bShow(true), m_bButtonNotFound(false) {
+About::About() : bShow(false), m_bButtonNotFound(false) {
 }
 
 void About::Render() {

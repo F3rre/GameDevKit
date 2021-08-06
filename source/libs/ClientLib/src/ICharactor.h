@@ -67,7 +67,9 @@ public:
 
 private:
     undefined field_0x254[0x273 - 0x254];
+public:
     CClassLink<CICharactor> classLink;
+private:
     std::list<void *> decolist;
     undefined field_0x290[0x474 - 0x290];
     CGFontTexture m_textureMessageAbove;

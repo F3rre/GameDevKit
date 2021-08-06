@@ -39,6 +39,7 @@ CProcess *CGFXMainFrame::GetCurrentProcess() const {
     return process_current;
 }
 
-const char *CGFXMainFrame::GetWorkingDir() const {
-    return working_dir;
+const char* CGFXMainFrame::GetWorkingDir() const {
+	return working_dir;
 }
+

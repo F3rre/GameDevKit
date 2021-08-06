@@ -18,5 +18,9 @@ public:
 	CIFStatic* N00006405; //0x07E4 
 	CIFStatic* m_squareIcon; //0x07E8 
 	char pad_0x07EC[0x4]; //0x07EC
+    void Write(std::wstring &text, int a2, UINT ForegroundColor, int a4, BYTE FontIndex);
 
-}; //Size=0x07F0
+    void WriteLine(std::wstring &text, int a2, UINT ForegroundColor, int a4, BYTE FontIndex);
+};
+
+//Size=0x07F0

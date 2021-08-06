@@ -6,6 +6,7 @@
 #include <BSLib/Debug.h>
 #include <BSLib/multibyte.h>
 #include <GInterface.h>
+#include <MainMenu/IFBFilterMainMenu.h>
 
 void NotificationTool::MenuItem() {
     ImGui::MenuItem("Notification Tool", 0, &bShow);
@@ -22,7 +23,7 @@ void NotificationTool::Render() {
 
     // Make a combo box for the three notice types
     // Based on this example: https://github.com/ocornut/imgui/issues/1658
-    const char *items[] = {"Quest", "Warning", "Notice"};
+    const char* items[] = { "Quest", "Warning", "Notice", "Purble" , "Orange" };
     static const char *current_item = NULL;
 
     // The second parameter is the label previewed before opening the combo.
@@ -69,7 +70,13 @@ void NotificationTool::Render() {
             g_pCGInterface->ShowMessage_Warning(wstr);
         } else if (strcmp(current_item, items[2]) == 0) {
             g_pCGInterface->ShowMessage_Notice(wstr);
-        } else {
+        } else if (strcmp(current_item, items[3]) == 0) {
+            CIFMainMenu::PurbleNoitfy->ShowMessage(wstr);
+        } else if (strcmp(current_item, items[4]) == 0) {
+            CIFMainMenu::OrangeNoitfy->ShowMessage(wstr);
+        }
+        else {
+
             // Somehow we don't know what the selection is
             BS_INFO("Unknown selection when sending notification");
         }

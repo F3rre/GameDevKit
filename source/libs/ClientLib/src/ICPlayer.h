@@ -14,6 +14,22 @@ public:
     /// \address 009d6580
     std::n_wstring GetCharName() const;
 
+    void Render(void);
+    bool CustomTitExists(const wchar_t* prefix);
+    void AddCustomTitle(const wchar_t* prefix , const wchar_t* title);
+    void RemoveCustomTitle(const wchar_t* prefix);
+    bool CustomNameRankExists(const wchar_t* prefix);
+    void AddCustomNameRank(const wchar_t* prefix, const wchar_t* title);
+    void RemoveCustomNameRank(const wchar_t* prefix);
+    bool CustomNameExists(const wchar_t* prefix);
+    void AddCustomName(const wchar_t* prefix, const wchar_t* title);
+    void RemoveCustomName(const wchar_t* prefix);
+    bool TitleColorTitExists(const wchar_t* prefix);
+    void AddTitleColor(const wchar_t* charname, int title);
+    void RemoveTitleColor(const wchar_t* prefix);
+    bool CharColorTitExists(const wchar_t* prefix);
+    void AddCharColor(const wchar_t* charname, int title);
+    void RemoveCharColor(const wchar_t* prefix);
 
 private:
     char pad_082C[32]; //0x082C
@@ -52,7 +68,7 @@ private:
 
 
     BEGIN_FIXTURE()
-        ENSURE_SIZE(0x2118)
+//        ENSURE_SIZE(0x2118)
 
         ENSURE_OFFSET(m_charname, 0x084C)
         ENSURE_OFFSET(m_level, 0x0868)

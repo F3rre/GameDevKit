@@ -34,7 +34,7 @@ public:
 	virtual void Func_17() = 0;
 	virtual void Func_18() = 0;
 	virtual void Func_19() = 0;
-	virtual void Func_20() = 0;
+	virtual void BringToFront() = 0;
 	virtual void Func_21() = 0;
 	virtual void Func_22() = 0;
 	virtual void Func_23() = 0;

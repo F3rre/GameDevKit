@@ -1,0 +1,14 @@
+//
+// Created by Bedo on 3/11/2021.
+//
+
+#ifndef SRO_DEVKIT_IFBFILTERUNIQUEPLACE_H
+#define SRO_DEVKIT_IFBFILTERUNIQUEPLACE_H
+
+
+class IFBFilterUniquePlace {
+
+};
+
+
+#endif //SRO_DEVKIT_IFBFILTERUNIQUEPLACE_H

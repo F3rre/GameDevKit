@@ -4,6 +4,7 @@
 #include "IFButton.h"
 
 class CIFVerticalScroll : public CIFScrollBar {
+GFX_DECLARE_DYNAMIC_EXISTING(CIFVerticalScroll, 0xEE9968)
 public:
     /// \address 0065A390
     void sub_65A390(RECT a2);

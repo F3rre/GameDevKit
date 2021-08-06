@@ -95,8 +95,9 @@ private:
 
     void Read(void* value, size_t numBytes);
 
-private:
+public:
     unsigned int m_currentReadBytes;
+private:
     unsigned int m_availableBytesForReading;
     unsigned char field_0xc;
     unsigned char field_0xd;

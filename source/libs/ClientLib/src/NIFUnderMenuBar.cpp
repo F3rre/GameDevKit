@@ -27,6 +27,7 @@ void NIFUnderMenuBar::Update() {
     // Retrieve LevelData for current Level
     // (this is one line of Media\server_dep\silkroad\textdata\leveldata.txt)
     CLevelData *data = g_CGlobalDataManager->m_levelDataMap[g_pCICPlayer->m_level];
+//    CLevelData* data2 = g_CGlobalDataManager->m_levelDataMap[g_pCICPlayer->m_JobLevel];
 
     // Don't continue if level-data is invalid
     if (data == NULL) {
@@ -64,7 +65,16 @@ void NIFUnderMenuBar::Update() {
     gauges[barnum]->foreground_value = exp_remain;
 
     // Assign more texts
-    this->lbl_level->SetText(L"Level: %d", g_pCICPlayer->m_exp_current);
+    /*if (g_pCICPlayer->GetJobType() == 4)
+    {
+        this->lbl_level->SetText(L"Level: %d", g_pCICPlayer->m_level);
+    }
+    else if(g_pCICPlayer->GetJobType() == 1)
+    {
+        //this->lbl_level->SetText(L"Trader Mod %d", g_pCICPlayer->m_JobLevel);
+    }*/
+    //this->lbl_level->SetText(L"Level: %d", g_pCICPlayer->m_level);
+    this->lbl_level->SetText(L"Level: %d", g_pCICPlayer->m_level);
     this->lbl_percentage->SetText(L"%.2lf %%", exp_percentage);
 
     // Skillpoints
@@ -73,10 +83,10 @@ void NIFUnderMenuBar::Update() {
     this->gauge_skillexp->foreground_value = g_pCICPlayer->m_skillpoint_progress / 400.0;
 
     // You can also draw text directly at the gauge. It will be centered automatically
-    // this->gauge_skillexp->SetText(L"%d", g_CICPlayer->skill_exp);
+     //this->gauge_skillexp->SetText(L"%d", g_pCICPlayer->m_exp_current);
 
 
-    this->lbl_exp_bar_scaler->SetText(L""); // Prescaler is disabled
+    //this->lbl_exp_bar_scaler->SetText(L""); // Prescaler is disabled
 
     // This label is right in the middle of the EXP-Bar
     //this->lbl_360->SetText(L"lbl_360");

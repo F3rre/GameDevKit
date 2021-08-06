@@ -28,11 +28,21 @@
 #include "Data/GachaItemSetData.h"
 #include "Data/GachaNpcData.h"
 #include "Data/LevelGoldData.h"
-
+#include <ObjectData.h>
 
 #define g_CGlobalDataManager ((CGlobalDataManager*)0x00EEDF08)
 
 class CGlobalDataManager {
+public:
+    void TEMPLE_93AEF0(unsigned char flag, unsigned char templething);
+    void TEMPLE_93ADB0(int a1, unsigned char uniontype);
+    void GetWorldCodeByID(std::wstring* code, unsigned short ID);
+
+    class CharData* GetCharData(unsigned int ObjID);
+
+    static CGlobalDataManager* Get();
+    ObjectData *GetObjectData(unsigned int ObjID);
+
 public:
     virtual void Unknown();
 

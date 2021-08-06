@@ -34,10 +34,10 @@ public:
 	// This seems to set the width and height (parameters supplied from Dx-Backbuffer size)
 
 	CProcess* GetCurrentProcess() const;
-
-    /// \brief Get the working directory of the client
-    const char *GetWorkingDir() const;
 	
+	/// \brief Get the working directory of the client
+	const char* GetWorkingDir() const;
+
 private:
 	CProcess* process_current; //0x0024
 	CProcess* process_next; //0x0028, Is CPSOuterInterface as of CPSLogo::OnUpdate (accesses 0xE8, which is out of range of CProcess)

@@ -58,6 +58,7 @@ public:
 	virtual bool IsInside(int x, int y);
 	virtual bool SetText(const wchar_t* src);
 	virtual const wchar_t* GetText();
+    std::n_wstring GetNText();
 	virtual void Func_47(int);
 	virtual void Func_48();
 
@@ -75,6 +76,8 @@ public:
     ///           0x80 shows the tooltip
     /// \address 00652d20
     void FUN_00652d20(undefined4 a1);
+
+	void SetToolTipSetting(int a2);
 
 private:
 	int On4001(int, int);

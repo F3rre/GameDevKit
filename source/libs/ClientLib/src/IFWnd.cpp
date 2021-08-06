@@ -1,7 +1,9 @@
 #include "StdAfx.h"
 #include "IFWnd.h"
 #include "Game.h"
+#include "GInterface.h"
 #include <BSLib/Debug.h>
+#include <MainMenu/IFBFilterMainMenu.h>
 
 GFX_IMPLEMENT_DYNAMIC_EXISTING(CIFWnd, 0x00EE9808)
 
@@ -108,7 +110,7 @@ bool CIFWnd::On3DEvent_MAYBE(Event3D* a2)
 	return reinterpret_cast<bool(__thiscall*)(CIFWnd*,Event3D*)>(0x00652540)(this, a2);
 }
 
-// CIFWnd::Func_20(void) .text 00652BC0 00000011   R . . . . . .
+// CIFWnd::BringToFront(void) .text 00652BC0 00000011   R . . . . . .
 void CIFWnd::BringToFront()
 {
 	reinterpret_cast<void(__thiscall*)(CIFWnd*)>(0x00652BC0)(this);
@@ -227,6 +229,10 @@ const wchar_t* CIFWnd::GetText()
 	return m_innerText.c_str();
 }
 
+std::n_wstring CIFWnd::GetNText()
+{
+    return m_innerText;
+}
 // CIFWnd::Func_42(void) .text 00652AF0 00000001   R . . . . . .
 void CIFWnd::Func_42()
 {
@@ -235,7 +241,21 @@ void CIFWnd::Func_42()
 
 // CIFWnd::OnCloseWnd(void) .text 00652C00 000000CF 00000004 00000000 R . . . . . .
 void CIFWnd::OnCloseWnd()
-{
+{    switch(this->UniqueID())
+    {
+        case CharLock:
+        case SwitchTitles:
+        case GrantName:
+        case EventTime:
+        case UniqueLog:
+        case CustomRank:
+        case ItemChest:
+        case CustomTitleUD:
+            CIFMainMenu::MenuGui->ShowGWnd(true);
+            CIFMainMenu::MenuGui->ResetPosition();
+            CIFMainMenu::MenuGui->BringToFront();
+            break;
+    }
 	reinterpret_cast<void(__thiscall*)(CIFWnd*)>(0x00652c00)(this);
 }
 
@@ -318,4 +338,7 @@ void CIFWnd::SetTooltipText(const std::n_wstring *str) {
 
 void CIFWnd::FUN_00652d20(undefined4 a1) {
     reinterpret_cast<void (__thiscall *)(CIFWnd *, undefined4)>(0x00652d20)(this, a1);
+}
+void CIFWnd::SetToolTipSetting(int a2) {
+	reinterpret_cast<void(__thiscall*)(CIFWnd*, int)>(0x652D20)(this, a2);
 }

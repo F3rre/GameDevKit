@@ -3,11 +3,12 @@
 #include "IFStretchWnd.h"
 
 class CIFNotify : public CIFStretchWnd {
+    GFX_DECLARE_DYNAMIC_EXISTING(CIFNotify, 0xEEC208)
 public:
     /// Show the notification message
     /// \address 007b3eb0
     /// \param msg Message to be shown
-    void ShowMessage(const std::n_wstring &msg);
+    void ShowMessage(const std::n_wstring& msg);
 
     /// \brief Set the Y position of this element
     /// \details This value is used for auto-positioning.
@@ -32,7 +33,7 @@ private:
         ENSURE_OFFSET(m_red, 0x7d8)
         ENSURE_OFFSET(m_green, 0x7d9)
         ENSURE_OFFSET(m_blue, 0x7da)
-    END_FIXTURE()
+        END_FIXTURE()
 
-    RUN_FIXTURE(CIFNotify)
+        RUN_FIXTURE(CIFNotify)
 };

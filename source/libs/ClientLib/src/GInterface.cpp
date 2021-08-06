@@ -7,6 +7,26 @@
 #include "GlobalDataManager.h"
 
 #include <remodel/MemberFunctionHook.h>
+#include <MainMenu/IFBFilterMainMenu.h>
+
+void CGInterface::OnNotifyAction(int a1, unsigned short action, int color, int a4, int a5)
+{
+    reinterpret_cast<void(__thiscall*)(CGInterface*, int, unsigned short, int, int, int)>(0x00778190)(this, a1, action, color, a4, a5);
+}
+
+int CGInterface::sub_799970(void)
+{
+    return reinterpret_cast<int(__thiscall*)(CGInterface*)>(0x00799970)(this);
+}
+
+void CGInterface::ShowLogMessage(int color, const wchar_t* msg) {
+    GetSystemMessageView()->WriteMessage(0xff, color, msg, 0, 1);
+}
+CGInterface* CGInterface::GetInterface(void)
+{
+    return *reinterpret_cast<CGInterface**>(0x0110F80C);
+}
+
 
 HOOK_ORIGINAL_MEMBER(0x0079D5B0, &CGInterface::ToggleActionWnd);
 void CGInterface::ToggleActionWnd() {
@@ -151,7 +171,64 @@ void CGInterface::Render_GDR_AUTO_POTION(bool visible) {
 }
 
 void CGInterface::CreateFlorian0Event() {
-    CGWnd *guide = GetAlarmManager()->GetGuide(GUIDE_FLORIAN0);
+    CIFMainMenu::MenuIcon = GetAlarmManager()->GetGuide(GUIDE_MAINMENU);
+    CIFMainMenu::DiscordIcon = GetAlarmManager()->GetGuide(GUIDE_DISCORD);
+    CIFMainMenu::FacebookIcon = GetAlarmManager()->GetGuide(GUIDE_FACEBOOK);
+
+
+    RECT MenuRect = { 0,0,165,420 };
+    RECT GrantRect = { 0,0,400,200 };
+    RECT SwitchRect = { 0,0,300,300 };
+    RECT UniqueRect = { 0,0,470,370 };
+    RECT EventRect = { 0,0,395,375 };
+    RECT CharlRect = { 0,0,325,205 };
+    RECT CustomRankRect = { 0,0,405,415 };
+    RECT ChestRect = { 0,0,600,370 };
+    RECT DmgRect = { 0,0,220,224 };
+    RECT FTWRect = { 0,0,187,165 };
+    RECT SurvRect = { 0,0,187,165 };
+    RECT CustomTitleRect = { 0,0,400,200 };
+    RECT ChangeLogRect = { 0,0,395,375 };
+    RECT NoitfyRect = { 0,0,395,375 };
+
+    CIFMainMenu::MenuGui = (CIFMainMenu*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFMainMenu), MenuRect, MainForm, 0);
+    CIFMainMenu::GrantNameGUI = (CIFGrantName*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFGrantName), GrantRect, GrantName, 0);
+    CIFMainMenu::SwitchTitleGUI = (CIFSwitchTitle*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFSwitchTitle), SwitchRect, SwitchTitles, 0);
+    CIFMainMenu::UniqueLogGUI = (CIFUniqueLog*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFUniqueLog), UniqueRect, UniqueLog, 0);
+    CIFMainMenu::EventTimeGUI = (CIFEventTime*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFEventTime), EventRect, EventTime, 0);
+    CIFMainMenu::CharLockGUI = (CIFCharLock*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFCharLock), CharlRect, CharLock, 0);
+    CIFMainMenu::CustomRankGUI = (CIFCustomRank*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFCustomRank), CustomRankRect, CustomRank, 0);
+    CIFMainMenu::ChestGUI = (CIFPlayerChest*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFPlayerChest), ChestRect, ItemChest, 0);
+    CIFMainMenu::DmgMeterGui = (CIFDMGMeter*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFDMGMeter), DmgRect, DMGMeter, 0);
+    CIFMainMenu::SurvGuiGUI = (CIFSurvCounter*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFSurvCounter), SurvRect, SurvKillsCounter, 0);
+    CIFMainMenu::FtwCunterGUI = (CIFFTWCounter*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFFTWCounter), FTWRect, FtwKillsCounter, 0);
+    CIFMainMenu::CustomTitleGUI = (CIFCustomTitle*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFCustomTitle), CustomTitleRect, CustomTitleUD, 0);
+    CIFMainMenu::ChangeLogGui = (CIFChangeLog*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFChangeLog), ChangeLogRect, ChangeLog, 0);
+    CIFMainMenu::PurbleNoitfy = (CIFNotify*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFNotify), NoitfyRect, PurbleNotify, 0);
+    CIFMainMenu::OrangeNoitfy = (CIFNotify*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFNotify), NoitfyRect, OrangeNotify, 0);
+
+    CIFMainMenu::OrangeNoitfy->SetEdgeTextures(
+        "interface\\ifcommon\\cop_notice_edge2.ddj",
+        "interface\\ifcommon\\cop_notice_edge.ddj",
+        "interface\\ifcommon\\cop_notice_edge2.ddj",
+        "interface\\ifcommon\\cop_notice_edge.ddj");
+
+    CIFMainMenu::OrangeNoitfy->SetCornerTextures("interface\\ifcommon\\cop_notice_corner.ddj");
+    CIFMainMenu::OrangeNoitfy->SetYPosition(40);
+    CIFMainMenu::OrangeNoitfy->SetColor(255, 99, 71);
+
+    CIFMainMenu::PurbleNoitfy->SetEdgeTextures(
+        "interface\\ifcommon\\coq_notice_edge2.ddj",
+        "interface\\ifcommon\\coq_notice_edge.ddj",
+        "interface\\ifcommon\\coq_notice_edge2.ddj",
+        "interface\\ifcommon\\coq_notice_edge.ddj");
+
+    CIFMainMenu::PurbleNoitfy->SetCornerTextures("interface\\ifcommon\\coq_notice_corner.ddj");
+    CIFMainMenu::PurbleNoitfy->SetYPosition(70);
+    CIFMainMenu::PurbleNoitfy->SetColor(75, 0, 130);
+
+
+
 }
 
 CAlramGuideMgrWnd *CGInterface::GetAlarmManager() {

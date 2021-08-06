@@ -76,3 +76,8 @@ bool CIFStatic::Func_51(const wchar_t* src)
 	assert(FALSE);
 	return false;
 }
+void CIFStatic::SetTextColor(D3DCOLOR color)
+{
+    m_FontTexture.SetColor(color);
+    m_FontTexture.sub_8B4400(10, 10);
+}

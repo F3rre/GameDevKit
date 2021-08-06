@@ -5,6 +5,12 @@
 
 void Setup();
 
+void PatchWatermark();
+void PatchAdvColor();
+void GuildJobMode();
+void PatchWrongPassword();
+void PatchChatLamps();
+
 bool DoesFileExists(const std::string &name);
 
 void InstallRuntimeClasses(CGame *);

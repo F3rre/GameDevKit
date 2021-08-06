@@ -18,6 +18,7 @@
 #include "unsorted.h"
 #include "IFSystemMessage.h"
 
+
 #define GDR_CHAT_BOARD 1
 #define GDR_STORAGEROOM 19
 #define GDR_NOTICE 20
@@ -206,7 +207,10 @@ public:
     /// \address 00787C10
     void sub_787C10(SChatMetaData &meta);
 
-
+    void ShowLogMessage(int color, const wchar_t* msg);
+    static  CGInterface* CGInterface::GetInterface(void);
+    void OnNotifyAction(int a1, unsigned short action, int color, int a4, int a5);
+    int sub_799970();
 private:
     /// \address 0079a7e0
     void FUN_0079a7e0(CGWndBase *pGWnd) const;

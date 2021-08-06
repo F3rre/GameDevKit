@@ -68,3 +68,6 @@ void __stdcall WriteToChatWindow(ChatType type, const std::n_wstring &strRecipie
 
 GameCfg* Fun_GetCfgGame();
 
+void __stdcall WriteToChat(ChatType type, const std::n_wstring& strRecipient,
+                           const std::n_wstring& strMessage,
+                           char direction, D3DCOLOR color, const std::n_wstring& strnotify);

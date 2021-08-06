@@ -3,7 +3,7 @@
 #include "IFListCtrl.h"
 
 class CIFTextBox : public CIFListCtrl {
-// TODO: Add Runtime Class Info
+GFX_DECLARE_DYNAMIC_EXISTING(CIFTextBox, 0xEE9760)
 public:
     /// \address 00638B50
     void sub_638B50(int a2);

@@ -92,7 +92,8 @@ set(SOURCE_FILES src/BufRender.h
     src/IFSystemMessage.h
     src/IFStorageRoom.h
     src/IFStoreForPackage.h
-    src/IFStretchWnd.cpp src/IFStretchWnd.h
+    src/IFStretchWnd.h
+    src/IFStretchWnd.cpp	
     src/IFSupporterChatWnd.h
     src/IFTextBox.h
     src/IFTileWnd.cpp
@@ -161,11 +162,9 @@ set(SOURCE_FILES src/BufRender.h
     src/NetProcessThird.cpp src/NetProcessThird.h
     src/PSMission.cpp src/PSMission.h
     src/GameCfg.cpp src/GameCfg.h
-    src/LocalTime.cpp src/LocalTime.h
-    src/IFCheckBox.cpp src/IFCheckBox.h
-    src/IFChatOptionBoard.cpp src/IFChatOptionBoard.h)
+    src/LocalTime.cpp src/LocalTime.h src/IFEquipment.cpp src/IFHelperBubbleWindow.cpp src/IFInventory.cpp src/ObjectData.h src/SOItem.cpp src/IFCheckBox.cpp src/IFCheckBox.h)
 
 
 add_library(ClientLib STATIC ${SOURCE_FILES})
-target_link_libraries(ClientLib GFXMainFrame GFX3DFunction GFXFileManagerLIB NavMesh ClientNet abi-testing imgui remodel ghidra)
+target_link_libraries(ClientLib FilterGUI GFXMainFrame GFX3DFunction GFXFileManagerLIB NavMesh ClientNet abi-testing imgui remodel ghidra)
 target_include_directories(ClientLib PUBLIC src/)

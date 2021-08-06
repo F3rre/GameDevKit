@@ -1,11 +1,13 @@
 #include "IFMainFrame.h"
 #include "Game.h"
 #include <BSLib/Debug.h>
+#include <GInterface.h>
 
 GFX_IMPLEMENT_DYNAMIC_EXISTING(CIFMainFrame, 0x00EECB54)
 
 GFX_BEGIN_MESSAGE_MAP(CIFMainFrame, CIFWnd)
-    ONG_COMMAND(2, &OnClick_Exit)
+ONG_CHAR()
+ONG_COMMAND(2, &CIFMainFrame::OnClick_Exit)
 GFX_END_MESSAGE_MAP()
 
 #define GDR_STA_TITLE 0
@@ -79,4 +81,20 @@ bool CIFMainFrame::SetText(const wchar_t *Src) {
 
 void CIFMainFrame::OnClick_Exit() {
     this->OnCloseWnd();
+}
+
+int CIFMainFrame::OnChar(UINT nChar, UINT a2, UINT a3) {
+
+    switch (nChar) {
+        case VK_ESCAPE: {
+            if (this->UniqueID() != DMGMeter) {
+                this->OnCloseWnd();
+                g_pCGInterface->m_IRM.GetResObj(98, 1)->OnCloseWnd();
+                //g_CGame->GetRes().res->height;
+                return 1;
+            }
+        }
+            break;
+    }
+    return 0;
 }

@@ -73,7 +73,6 @@ public:
 
     /// \address 006a1f70
     void ShowSubPage(int page);
-
 private:
 
     /// \address 006a24f0

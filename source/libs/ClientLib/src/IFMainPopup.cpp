@@ -200,7 +200,8 @@ void CIFMainPopup::ShowSubPage(int page) {
             m_playerInfoWindow->ShowGWnd(true);
             m_background->ShowGWnd(false);
 
-            MoveGWnd(80, GetPos().y);
+            //MoveGWnd(80, GetPos().y);
+            MoveGWnd(((res.width - GetSize().width) - 80), GetPos().y);
             BringToFront();
             break;
         }
@@ -212,7 +213,8 @@ void CIFMainPopup::ShowSubPage(int page) {
             m_questWindow->ShowGWnd(true);
             m_background->ShowGWnd(false);
 
-            MoveGWnd(80, GetPos().y);
+            //MoveGWnd(80, GetPos().y);
+            MoveGWnd(((res.width - GetSize().width) - 80), GetPos().y);
             BringToFront();
             break;
         }
@@ -225,7 +227,8 @@ void CIFMainPopup::ShowSubPage(int page) {
             m_background->ShowGWnd(true);
             m_background->ShowGWnd(false);
 
-            MoveGWnd(80, GetPos().y);
+            //MoveGWnd(80, GetPos().y);
+            MoveGWnd(((res.width - GetSize().width) - 80), GetPos().y);
             BringToFront();
             break;
         }

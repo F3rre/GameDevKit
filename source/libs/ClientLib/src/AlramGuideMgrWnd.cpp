@@ -67,10 +67,23 @@ CGWnd *CAlramGuideMgrWnd::GetGuide(int windowId) {
             pObj = CreateInstance(this, GFX_RUNTIME_CLASS(CIFEventGuideSecond), rect, GUIDE_EVENTSECOND, 0);
             break;
 
-        case GUIDE_FLORIAN0:
-            pObj = CreateInstance(this, GFX_RUNTIME_CLASS(CIFflorian0Guide), rect, GUIDE_FLORIAN0, 0);
+        case GUIDE_MAINMENU:
+            pObj = CreateInstance(this, GFX_RUNTIME_CLASS(CIFflorian0Guide), rect, GUIDE_MAINMENU, 0);
             break;
 
+        case GUIDE_DISCORD:
+            pObj = CreateInstance(this, GFX_RUNTIME_CLASS(CIFflorian0Guide), rect, GUIDE_DISCORD, 0);
+            break;
+
+        case GUIDE_FACEBOOK:
+            pObj = CreateInstance(this, GFX_RUNTIME_CLASS(CIFflorian0Guide), rect, GUIDE_FACEBOOK, 0);
+            break;
+        case GUIDE_WEB:
+            pObj = CreateInstance(this, GFX_RUNTIME_CLASS(CIFflorian0Guide), rect, GUIDE_WEB, 0);
+            break;
+        case GUIDE_RELOAD:
+            pObj = CreateInstance(this, GFX_RUNTIME_CLASS(CIFflorian0Guide), rect, GUIDE_RELOAD, 0);
+            break;
         default:
             assert(false);
     }

@@ -17,6 +17,11 @@ public:
 
     /// \address 008c9bb0
     const std::n_wstring &FUN_008c9bb0(const std::n_wstring &identifier);
+
+    std::wstring *GetStringByNameStrID(std::wstring *NameStrID);
+
+    std::wstring *GetStringTextByCode(const wchar_t *code);
+
 };
 
 #define g_CTextStringManager ((CTextStringManager*)0x00EEDE90)
