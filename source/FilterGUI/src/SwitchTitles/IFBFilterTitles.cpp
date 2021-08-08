@@ -165,6 +165,8 @@ void CIFSwitchTitle::OnListChatThing(int a1, int a2) {
 
     CIFListCtrl::SLineOfText* line = pList->sub_63A940();
 
+    CIFSelectableArea* plit;
+    //CIFSelectableArea::Sl
     std::n_wstring str;
     line->m_font->GetText(&str);
 

@@ -19,6 +19,7 @@
 #include "CustomTitle/IFBFilterCustomTitle.h"
 #include "KillCounter/IFBFilterSurvivalArena.h"
 #include "KillCounter/IFBFilterFortressKillsCounter.h"
+#include "EventGui/IFBFilterEventMenuGui.h"
 #include <IFflorian0Guide.h>
 #include <ChangeLog/IFBFilterChangeLog.h>
 #include <IFNotify.h>
@@ -119,6 +120,7 @@ public:
     static CIFCustomTitle* CustomTitleGUI;
     static CIFSurvCounter* SurvGuiGUI;
     static CIFFTWCounter* FtwCunterGUI;
+    static CIFEventMenuGui* EventMenuGUI;
     static CGWnd* ReloadIcon;
     static CGWnd* MenuIcon;
     static CGWnd* DiscordIcon;

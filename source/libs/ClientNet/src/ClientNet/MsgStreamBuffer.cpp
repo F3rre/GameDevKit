@@ -17,6 +17,7 @@ CMsgStreamBuffer::CMsgStreamBuffer(WORD msgid) {
     m_node2 = node;
     m_availableBytesForReading = 0;
     m_currentReadBytes = 0;
+    printf("MsgID: %c",msgid);
 }
 
 void *CMsgStreamBuffer::SMsgStreamNode::operator new(std::size_t sz) {

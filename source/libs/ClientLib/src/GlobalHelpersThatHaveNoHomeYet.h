@@ -33,6 +33,7 @@ union uregion {
 #define ChangeLog 11454
 #define PurbleNotify 11455
 #define OrangeNotify 11456
+#define EventGuide 11457
 
 #define SendMsg(x) reinterpret_cast<void (__cdecl *)(CMsgStreamBuffer&)>(0x008418D0)(x)
 

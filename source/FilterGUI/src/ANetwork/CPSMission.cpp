@@ -101,7 +101,7 @@ bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
         break;
     }
 	/// ORG PACKETS
-	if (msg->msgid() == 0x3305)
+	/*if (msg->msgid() == 0x3305)
 	{
 		//if (g_pCICPlayer) {
 		//	BYTE JOBTYPE = g_pCICPlayer->GetJobType();
@@ -130,7 +130,7 @@ bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 		}
 
 		msg->m_currentReadBytes = 0;
-	}
+	}*/
 	if (msg->msgid() == 0x30DF)
 	{
 		unsigned int ID;

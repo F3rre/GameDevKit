@@ -10,7 +10,8 @@ set(SOURCE_FILES
         src/SwitchTitles/IFBFilterTitles.cpp src/SwitchTitles/IFBFilterTitles.h
         src/UniquesDps/IFBFilterDMGMeter.cpp src/UniquesDps/IFBFilterDMGMeter.h
         src/CharacterLock/IFBFilterCharLock.cpp src/CharacterLock/IFBFilterCharLock.h
-
+        src/EventGui/IFBFilterEventMenuGui.cpp src/EventGui/IFBFilterEventMenuGui.h
+        src/EventGui/IFBFilterEventMenuGuiSlot.cpp src/EventGui/IFBFilterEventMenuGuiSlot.h
         src/KillCounter/IFBFilterSurvivalArena.cpp src/KillCounter/IFBFilterSurvivalArena.h
         src/KillCounter/IFBFilterFortressKillsCounter.cpp src/KillCounter/IFBFilterFortressKillsCounter.h
 

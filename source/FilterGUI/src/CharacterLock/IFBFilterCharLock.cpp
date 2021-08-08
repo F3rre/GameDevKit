@@ -180,8 +180,7 @@ void CIFCharLock::On_BtnClickUnLock()
 void CIFCharLock::ResetPosition()
 {
     USHORT PosX = 0, PosY = 165;
-    PosY = CLIENT_SCREEN_HEIGHT - 300;
-    PosX = CLIENT_SCREEN_WIDTH - 300;
+    PosX = CLIENT_SCREEN_WIDTH - 350;
     this->MoveGWnd(PosX, PosY);
 }
 
