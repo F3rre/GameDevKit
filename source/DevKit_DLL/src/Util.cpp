@@ -20,7 +20,6 @@
 
 #include <OnGameNotify.h>
 #include "NotificationHandler.h"
-#include <ItemCompare/IFItemComparison.h>
 #include <ANetwork/CPSMission.h>
 #include <DiscordRichPresence/DiscordManager.h>
 
@@ -151,10 +150,7 @@ void Setup() {
     //CALLFunction(0x00682D6E, 0x0066FA60);
 
     //isro sys Comparison with old tool tip
-    replaceOffset(0x00682AFC, addr_from_this(&CIFItemComparison::AppendAdvancedInfo));
-    replaceOffset(0x00682D6E, addr_from_this(&CIFItemComparison::AppendAdvancedInfo));
-    replaceOffset(0x00682FBE, addr_from_this(&CIFItemComparison::AppendAdvancedInfo));
-    replaceOffset(0x0068320E, addr_from_this(&CIFItemComparison::AppendAdvancedInfo));
+
 
 
     //g_notificationhandler.Initialize();

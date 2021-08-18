@@ -32,7 +32,6 @@ ONG_COMMAND(BFILTER_MENU_RANK_BUTTON, &CIFMainMenu::On_BtnClick_5)
 ONG_COMMAND(BFILTER_MENU_EVENTTIMER_BUTTON, &CIFMainMenu::On_BtnClick_6)
 ONG_COMMAND(GUIMENU_TURKISH, &CIFMainMenu::On_Btn_turkishLang)
 ONG_COMMAND(GUIMENU_ENGLISH, &CIFMainMenu::On_Btn_EnglishLang)
-ONG_COMMAND(BFILTER_MENU_CHANGELOG_BUTTON, &CIFMainMenu::OnChangeLogButton)
 
 GFX_END_MESSAGE_MAP()
 
@@ -44,15 +43,13 @@ GFX_END_MESSAGE_MAP()
  CIFEventTime* CIFMainMenu::EventTimeGUI;
  CIFCharLock* CIFMainMenu::CharLockGUI;
  CIFCustomRank* CIFMainMenu::CustomRankGUI;
- CIFPlayerChest* CIFMainMenu::ChestGUI;
  CIFDMGMeter* CIFMainMenu::DmgMeterGui;
  CIFCustomTitle* CIFMainMenu::CustomTitleGUI;
  CIFSurvCounter* CIFMainMenu::SurvGuiGUI;
  CIFFTWCounter* CIFMainMenu::FtwCunterGUI;
- CIFChangeLog* CIFMainMenu::ChangeLogGui;
  CIFNotify* CIFMainMenu::PurbleNoitfy;
  CIFNotify* CIFMainMenu::OrangeNoitfy;
- CIFEventMenuGui* CIFMainMenu::EventMenuGUI;
+ CIFEventMenu* CIFMainMenu::EventMenu;
 
  CGWnd* CIFMainMenu::MenuIcon;
  CGWnd* CIFMainMenu::DiscordIcon;
@@ -252,18 +249,13 @@ void CIFMainMenu::On_BtnClick_1()
 		CIFMainMenu::CharLockGUI->ShowGWnd(false);
 	}
 
-    if (CIFMainMenu::ChangeLogGui->IsVisible()) {
-        CIFMainMenu::ChangeLogGui->ShowGWnd(false);
-    }
-
 	CIFMainMenu::SwitchTitleGUI->ShowGWnd(true);
 	CIFMainMenu::SwitchTitleGUI->ResetPosition();
 	CIFMainMenu::SwitchTitleGUI->BringToFront();
 
-
-	CIFMainMenu::EventMenuGUI->ShowGWnd(true);
-	CIFMainMenu::EventMenuGUI->ResetPosition();
-	CIFMainMenu::EventMenuGUI->BringToFront();
+	CIFMainMenu::EventMenu->ShowGWnd(true);
+	CIFMainMenu::EventMenu->ResetPosition();
+	CIFMainMenu::EventMenu->BringToFront();
 
 }
 void CIFMainMenu::On_BtnClick_2()
@@ -293,10 +285,6 @@ void CIFMainMenu::On_BtnClick_2()
 	if (CIFMainMenu::CharLockGUI->IsVisible()) {
 		CIFMainMenu::CharLockGUI->ShowGWnd(false);
 	}
-
-    if (CIFMainMenu::ChangeLogGui->IsVisible()) {
-        CIFMainMenu::ChangeLogGui->ShowGWnd(false);
-    }
 
 	CIFMainMenu::GrantNameGUI->ShowGWnd(true);
 	CIFMainMenu::GrantNameGUI->ResetPosition();
@@ -330,10 +318,6 @@ void CIFMainMenu::On_BtnClick_3()
 		CIFMainMenu::CharLockGUI->ShowGWnd(false);
 	}
 
-    if (CIFMainMenu::ChangeLogGui->IsVisible()) {
-        CIFMainMenu::ChangeLogGui->ShowGWnd(false);
-    }
-
 	CIFMainMenu::UniqueLogGUI->ShowGWnd(true);
 	CIFMainMenu::UniqueLogGUI->ResetPosition();
 	CIFMainMenu::UniqueLogGUI->BringToFront();
@@ -365,10 +349,6 @@ void CIFMainMenu::On_BtnClick_4()
 	if (CIFMainMenu::UniqueLogGUI->IsVisible()) {
 		CIFMainMenu::UniqueLogGUI->ShowGWnd(false);
 	}
-
-    if (CIFMainMenu::ChangeLogGui->IsVisible()) {
-        CIFMainMenu::ChangeLogGui->ShowGWnd(false);
-    }
 
 	CIFMainMenu::CharLockGUI->ShowGWnd(true);
 	CIFMainMenu::CharLockGUI->ResetPosition();
@@ -403,10 +383,6 @@ void CIFMainMenu::On_BtnClick_5()
 		CIFMainMenu::UniqueLogGUI->ShowGWnd(false);
 	}
 
-    if (CIFMainMenu::ChangeLogGui->IsVisible()) {
-        CIFMainMenu::ChangeLogGui->ShowGWnd(false);
-    }
-
 	CIFMainMenu::CustomRankGUI->ShowGWnd(true);
 	CIFMainMenu::CustomRankGUI->ResetPosition();
 	CIFMainMenu::CustomRankGUI->BringToFront();
@@ -440,45 +416,13 @@ void CIFMainMenu::On_BtnClick_6()
 		CIFMainMenu::UniqueLogGUI->ShowGWnd(false);
 	}
 
-    if (CIFMainMenu::ChangeLogGui->IsVisible()) {
-        CIFMainMenu::ChangeLogGui->ShowGWnd(false);
-    }
 
 	CIFMainMenu::EventTimeGUI->ShowGWnd(true);
 	CIFMainMenu::EventTimeGUI->ResetPosition();
 	CIFMainMenu::EventTimeGUI->BringToFront();
 }
 
-void CIFMainMenu::OnChangeLogButton()
-{
-    if (CIFMainMenu::CharLockGUI->IsVisible()) {
-        CIFMainMenu::CharLockGUI->ShowGWnd(false);
-    }
 
-    if (CIFMainMenu::SwitchTitleGUI->IsVisible()) {
-        CIFMainMenu::SwitchTitleGUI->ShowGWnd(false);
-    }
-
-    if (CIFMainMenu::GrantNameGUI->IsVisible()) {
-        CIFMainMenu::GrantNameGUI->ShowGWnd(false);
-    }
-
-    if (CIFMainMenu::CustomRankGUI->IsVisible()) {
-        CIFMainMenu::CustomRankGUI->ShowGWnd(false);
-    }
-
-    if (CIFMainMenu::UniqueLogGUI->IsVisible()) {
-        CIFMainMenu::UniqueLogGUI->ShowGWnd(false);
-    }
-
-    if (CIFMainMenu::EventTimeGUI->IsVisible()) {
-        CIFMainMenu::EventTimeGUI->ShowGWnd(false);
-    }
-
-    CIFMainMenu::ChangeLogGui->ShowGWnd(false);
-    CIFMainMenu::ChangeLogGui->ResetPosition();
-    CIFMainMenu::ChangeLogGui->BringToFront();
-}
 void CIFMainMenu::ResetPosition()
 {
 	USHORT PosX = 0, PosY = 165;

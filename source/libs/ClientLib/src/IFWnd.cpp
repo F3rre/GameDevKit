@@ -249,7 +249,6 @@ void CIFWnd::OnCloseWnd()
         case EventTime:
         case UniqueLog:
         case CustomRank:
-        case ItemChest:
         case CustomTitleUD:
             CIFMainMenu::MenuGui->ShowGWnd(true);
             CIFMainMenu::MenuGui->ResetPosition();

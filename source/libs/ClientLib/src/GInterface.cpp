@@ -183,14 +183,12 @@ void CGInterface::CreateFlorian0Event() {
     RECT EventRect = { 0,0,395,375 };
     RECT CharlRect = { 0,0,325,205 };
     RECT CustomRankRect = { 0,0,405,415 };
-    RECT ChestRect = { 0,0,600,370 };
     RECT DmgRect = { 0,0,220,224 };
     RECT FTWRect = { 0,0,187,165 };
     RECT SurvRect = { 0,0,187,165 };
     RECT CustomTitleRect = { 0,0,400,200 };
-    RECT ChangeLogRect = { 0,0,395,375 };
     RECT NoitfyRect = { 0,0,395,375 };
-    RECT EventUiRect = { 0,0,492,300 };
+    RECT EventGuiRect = { 0,0,492,300 };
 
     CIFMainMenu::MenuGui = (CIFMainMenu*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFMainMenu), MenuRect, MainForm, 0);
     CIFMainMenu::GrantNameGUI = (CIFGrantName*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFGrantName), GrantRect, GrantName, 0);
@@ -199,15 +197,13 @@ void CGInterface::CreateFlorian0Event() {
     CIFMainMenu::EventTimeGUI = (CIFEventTime*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFEventTime), EventRect, EventTime, 0);
     CIFMainMenu::CharLockGUI = (CIFCharLock*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFCharLock), CharlRect, CharLock, 0);
     CIFMainMenu::CustomRankGUI = (CIFCustomRank*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFCustomRank), CustomRankRect, CustomRank, 0);
-    CIFMainMenu::ChestGUI = (CIFPlayerChest*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFPlayerChest), ChestRect, ItemChest, 0);
     CIFMainMenu::DmgMeterGui = (CIFDMGMeter*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFDMGMeter), DmgRect, DMGMeter, 0);
     CIFMainMenu::SurvGuiGUI = (CIFSurvCounter*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFSurvCounter), SurvRect, SurvKillsCounter, 0);
     CIFMainMenu::FtwCunterGUI = (CIFFTWCounter*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFFTWCounter), FTWRect, FtwKillsCounter, 0);
     CIFMainMenu::CustomTitleGUI = (CIFCustomTitle*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFCustomTitle), CustomTitleRect, CustomTitleUD, 0);
-    CIFMainMenu::ChangeLogGui = (CIFChangeLog*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFChangeLog), ChangeLogRect, ChangeLog, 0);
     CIFMainMenu::PurbleNoitfy = (CIFNotify*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFNotify), NoitfyRect, PurbleNotify, 0);
     CIFMainMenu::OrangeNoitfy = (CIFNotify*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFNotify), NoitfyRect, OrangeNotify, 0);
-    CIFMainMenu::EventMenuGUI = (CIFEventMenuGui*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFEventMenuGui), EventUiRect, EventGuide, 0);
+    CIFMainMenu::EventMenu = (CIFEventMenu*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFEventMenu), EventGuiRect, EventMenuGui, 0);
 
     CIFMainMenu::OrangeNoitfy->SetEdgeTextures(
         "interface\\ifcommon\\cop_notice_edge2.ddj",

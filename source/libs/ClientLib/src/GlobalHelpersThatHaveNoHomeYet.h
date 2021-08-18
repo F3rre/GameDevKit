@@ -27,13 +27,11 @@ union uregion {
 #define FtwKillsCounter 11448
 #define SurvKillsCounter 11449
 #define CustomRank 11450
-#define ItemChest 11451
 #define SwitchTitles 11452
 #define CustomTitleUD 11453
-#define ChangeLog 11454
 #define PurbleNotify 11455
 #define OrangeNotify 11456
-#define EventGuide 11457
+#define EventMenuGui 11457
 
 #define SendMsg(x) reinterpret_cast<void (__cdecl *)(CMsgStreamBuffer&)>(0x008418D0)(x)
 

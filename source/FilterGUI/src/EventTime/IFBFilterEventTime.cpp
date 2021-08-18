@@ -102,11 +102,7 @@ bool CIFEventTime::OnCreate(long ln)
 
     //Refresh->MoveGWnd(m_custom_label->GetPos().x + m_custom_label->GetSize().width - 40, m_custom_label->GetPos().y + m_custom_label->GetSize().height - 37);
     this->m_title->SetText(L"Event Timer");
-    //Refresh->TB_Func_13("interface\\ifcommon\\bfilter\\refresh.ddj", 0, 0);
 
-   // std::n_wstring msg(L"Refresh Log");
-    //Refresh->SetTooltipText(&msg);
-    //Refresh->SetToolTipSetting(0x80);
     this->ShowGWnd(false);
     TB_Func_13("interface\\frame\\mframe_wnd_", 0, 0);
     ResetPosition();

@@ -14,15 +14,13 @@
 #include "CustomRank/IFBFilterRank.h"
 
 #include "SwitchTitles/IFBFilterTitles.h"
-#include "PlayerChest/IFBFilterChest.h"
 #include "UniquesDps/IFBFilterDMGMeter.h"
 #include "CustomTitle/IFBFilterCustomTitle.h"
 #include "KillCounter/IFBFilterSurvivalArena.h"
 #include "KillCounter/IFBFilterFortressKillsCounter.h"
-#include "EventGui/IFBFilterEventMenuGui.h"
 #include <IFflorian0Guide.h>
-#include <ChangeLog/IFBFilterChangeLog.h>
 #include <IFNotify.h>
+#include "EventMenu/IFBFilterEventMenu.h"
 
 class CIFMainMenu : public CIFMainFrame
 {
@@ -115,18 +113,16 @@ public:
     static CIFEventTime* EventTimeGUI;
     static CIFCharLock* CharLockGUI;
     static CIFCustomRank* CustomRankGUI;
-    static CIFPlayerChest* ChestGUI;
     static CIFDMGMeter* DmgMeterGui;
     static CIFCustomTitle* CustomTitleGUI;
     static CIFSurvCounter* SurvGuiGUI;
     static CIFFTWCounter* FtwCunterGUI;
-    static CIFEventMenuGui* EventMenuGUI;
     static CGWnd* ReloadIcon;
     static CGWnd* MenuIcon;
     static CGWnd* DiscordIcon;
     static CGWnd* FacebookIcon;
-    static CIFChangeLog* ChangeLogGui;
     static CIFNotify* PurbleNoitfy;
     static CIFNotify* OrangeNoitfy;
+    static CIFEventMenu* EventMenu;
 
 };

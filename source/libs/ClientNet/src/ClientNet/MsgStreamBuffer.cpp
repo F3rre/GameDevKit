@@ -17,7 +17,7 @@ CMsgStreamBuffer::CMsgStreamBuffer(WORD msgid) {
     m_node2 = node;
     m_availableBytesForReading = 0;
     m_currentReadBytes = 0;
-    printf("MsgID: %c",msgid);
+    //printf("MsgID: %c",msgid);
 }
 
 void *CMsgStreamBuffer::SMsgStreamNode::operator new(std::size_t sz) {
@@ -65,6 +65,7 @@ void CMsgStreamBuffer::ToggleAfter() {
 }
 
 CMsgStreamBuffer::~CMsgStreamBuffer() {
+    //printf("CMsgStreamBuffer\n");
     // TODO: This is a really, really, REALLY BAD idea. Implement this function ASAP!
     reinterpret_cast<void (__thiscall *)(CMsgStreamBuffer *)>(0x005097A0)(this);
 }
