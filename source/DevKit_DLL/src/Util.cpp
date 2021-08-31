@@ -50,16 +50,16 @@ void Setup() {
 
     replaceOffset(0x00832a11, addr_from_this(&CGame_Hook::InitGameAssets_Impl));
 
-   //replaceOffset(0x0084c9bf, addr_from_this(&CNetProcessIn::RegisterPacketHandlers));
-   //replaceOffset(0x00898656, addr_from_this(&CNetProcessSecond::RegisterPacketHandlers));
-   //replaceOffset(0x008a4876, addr_from_this(&CNetProcessThird::RegisterPacketHandlers));
+   //replaceOffset(0x0084c9bf, addr_from_this(&CNetProcessIn::RegisterPacketHandlers));  Çöp 
+   //replaceOffset(0x00898656, addr_from_this(&CNetProcessSecond::RegisterPacketHandlers)); ÇÖP 
+   //replaceOffset(0x008a4876, addr_from_this(&CNetProcessThird::RegisterPacketHandlers)); ÇÖP
 
    // placeHook(0x0049d620, Put);
 
   //  quickstart.Setup();
 
 #ifdef CONFIG_DEBUG_REDIRECT_PUTDUMP
-    replaceAddr(0x00832927 + 1, (int) &DebugPrintCallback);
+    //replaceAddr(0x00832927 + 1, (int) &DebugPrintCallback);
 #endif // CONFIG_DEBUG_REDIRECT_PUTDUMP
 
 #ifdef CONFIG_TRANSLATIONS_DEBUG
@@ -70,7 +70,7 @@ void Setup() {
     replaceOffset(0x008774f4, (int)&WriteToChatWindow);
     replaceOffset(0x00877b5c, (int)&WriteToChatWindow);
 
-    //placeHook(0x007a9bd0, addr_from_this(&CIFChatViewer::ShowHideControls));
+    //placeHook(0x007a9bd0, addr_from_this(&CIFChatViewer::ShowHideControls)); ÇÖP
 //#endif // CONFIG_CHATVIEWER
 
     //BFILTER
@@ -137,10 +137,10 @@ void Setup() {
     // replaceAddr(0x00dbd4fc, addr_from_this(&CIFPlayerMiniInfo::Render));
 
     //old tooltip
-    CALLFunction(0x0068286A, 0x0066FD60);
-    CALLFunction(0x00682E9A, 0x0066FD60);
-    CALLFunction(0x00682C4A, 0x0066FD60);
-    CALLFunction(0x006830E4, 0x0066FD60);
+    //CALLFunction(0x0068286A, 0x0066FD60);
+    //CALLFunction(0x00682E9A, 0x0066FD60);
+    //CALLFunction(0x00682C4A, 0x0066FD60);
+    //CALLFunction(0x006830E4, 0x0066FD60);
     PatchAdvColor();
 
     // w/o Item Comparison

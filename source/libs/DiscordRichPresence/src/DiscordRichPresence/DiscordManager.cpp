@@ -44,7 +44,7 @@ void OnUserUpdated(void* data)
 	app->users->get_current_user(app->users, &user);
 	app->currentUser = user;
 
-	printf("Connected user: %s#%s\r\n", user.username, user.discriminator);
+	//printf("Connected user: %s#%s\r\n", user.username, user.discriminator);
 
 	// Update state after connection
 	DiscordManager::Instance().UpdateState();

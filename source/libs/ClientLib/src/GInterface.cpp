@@ -189,6 +189,8 @@ void CGInterface::CreateFlorian0Event() {
     RECT CustomTitleRect = { 0,0,400,200 };
     RECT NoitfyRect = { 0,0,395,375 };
     RECT EventGuiRect = { 0,0,492,300 };
+    RECT EventGuiTRect = {0,0,325,205};
+    RECT CharMenuRect = { 0,0,279,237 };
 
     CIFMainMenu::MenuGui = (CIFMainMenu*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFMainMenu), MenuRect, MainForm, 0);
     CIFMainMenu::GrantNameGUI = (CIFGrantName*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFGrantName), GrantRect, GrantName, 0);
@@ -204,6 +206,8 @@ void CGInterface::CreateFlorian0Event() {
     CIFMainMenu::PurbleNoitfy = (CIFNotify*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFNotify), NoitfyRect, PurbleNotify, 0);
     CIFMainMenu::OrangeNoitfy = (CIFNotify*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFNotify), NoitfyRect, OrangeNotify, 0);
     CIFMainMenu::EventMenu = (CIFEventMenu*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFEventMenu), EventGuiRect, EventMenuGui, 0);
+    CIFMainMenu::CharMenu = (CIFCharacterMenu*)CreateInstance(this, GFX_RUNTIME_CLASS(CIFCharacterMenu), CharMenuRect, CharMenuGui,0);
+    //CIFMainMenu::EventTeam=(CIFEve)
 
     CIFMainMenu::OrangeNoitfy->SetEdgeTextures(
         "interface\\ifcommon\\cop_notice_edge2.ddj",

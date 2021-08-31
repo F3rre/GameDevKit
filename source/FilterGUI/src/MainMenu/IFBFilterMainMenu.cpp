@@ -50,6 +50,7 @@ GFX_END_MESSAGE_MAP()
  CIFNotify* CIFMainMenu::PurbleNoitfy;
  CIFNotify* CIFMainMenu::OrangeNoitfy;
  CIFEventMenu* CIFMainMenu::EventMenu;
+ CIFCharacterMenu* CIFMainMenu::CharMenu;
 
  CGWnd* CIFMainMenu::MenuIcon;
  CGWnd* CIFMainMenu::DiscordIcon;
@@ -256,6 +257,9 @@ void CIFMainMenu::On_BtnClick_1()
 	CIFMainMenu::EventMenu->ShowGWnd(true);
 	CIFMainMenu::EventMenu->ResetPosition();
 	CIFMainMenu::EventMenu->BringToFront();
+
+	CIFMainMenu::CharMenu->ShowGWnd(true);
+	CIFMainMenu::CharMenu->BringToFront();
 
 }
 void CIFMainMenu::On_BtnClick_2()

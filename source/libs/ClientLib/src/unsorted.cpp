@@ -241,12 +241,44 @@ void __stdcall WriteToChatWindow(ChatType type, const std::n_wstring &strRecipie
                 tmp = local_64 + strMessageCopy;
                 g_pCGInterface->ShowMessage_Quest(strMessageCopy);
                 g_pCGInterface->ShowLogMessage(0x11654c, tmp.c_str());
-            } else if (strMessageCopy.find(L"2") == 0) {
+            } 
+            else if (strMessageCopy.find(L"2") == 0) {
                 strMessageCopy.erase(0, 1);
                 tmp = local_64 + strMessageCopy;
                 g_pCGInterface->ShowMessage_Warning(strMessageCopy);
                 g_pCGInterface->ShowLogMessage(0x314169, tmp.c_str());
-            } else {
+            }
+            else if (strMessageCopy.find(L"3") == 0) {
+                strMessageCopy.erase(0, 1);
+                tmp = local_64 + strMessageCopy;
+                g_pCGInterface->ShowMessage_Warning(strMessageCopy);
+                g_pCGInterface->ShowLogMessage(0x314169, tmp.c_str());
+            }
+            else if (strMessageCopy.find(L"4") == 0) {
+                strMessageCopy.erase(0, 1);
+                tmp = local_64 + strMessageCopy;
+                g_pCGInterface->ShowMessage_Warning(strMessageCopy);
+                g_pCGInterface->ShowLogMessage(0x314169, tmp.c_str());
+            }
+            else if (strMessageCopy.find(L"5") == 0) {
+                strMessageCopy.erase(0, 1);
+                tmp = local_64 + strMessageCopy;
+                g_pCGInterface->ShowMessage_Warning(strMessageCopy);
+                g_pCGInterface->ShowLogMessage(0x314169, tmp.c_str());
+            }
+            else if (strMessageCopy.find(L"6") == 0) {
+                strMessageCopy.erase(0, 1);
+                tmp = local_64 + strMessageCopy;
+                g_pCGInterface->ShowMessage_Warning(strMessageCopy);
+                g_pCGInterface->ShowLogMessage(0x314169, tmp.c_str());
+            }
+            else if (strMessageCopy.find(L"7") == 0) {
+                strMessageCopy.erase(0, 1);
+                tmp = local_64 + strMessageCopy;
+                g_pCGInterface->ShowMessage_Warning(strMessageCopy);
+                g_pCGInterface->ShowLogMessage(0x314169, tmp.c_str());
+            }
+            else {
                 tmp = local_64 + strMessageCopy;
                 g_pCGInterface->ShowMessage_Notice(strMessageCopy);
                 g_pCGInterface->ShowLogMessage(color, tmp.c_str());

@@ -141,7 +141,7 @@ bool CIFSwitchTitle::OnCreate(long ln)
  
     this->ShowGWnd(false);
     ResetPosition();
-    CreateThread(NULL, 0, UpdateTitles, NULL, 0, 0);
+    //CreateThread(NULL, 0, UpdateTitles, NULL, 0, 0);
     return true;
 }
 
@@ -149,14 +149,14 @@ void CIFSwitchTitle::OnUpdate()
 {
 }
 
-DWORD WINAPI CIFSwitchTitle::UpdateTitles(LPVOID lpParam) {
-    while (true) {
+/*DWORD WINAPI CIFSwitchTitle::UpdateTitles(LPVOID lpParam) {
+    while (false) {
         CMsgStreamBuffer buf(0x1200);
         SendMsg(buf);
         CIFMainMenu::SwitchTitleGUI->m_custom_label2->SetText(L"");
         Sleep(5 * 60000);
     }
-}
+}*/
 void CIFSwitchTitle::OnListChatThing(int a1, int a2) {
     printf("%s(%d, %d)\n", __FUNCTION__, a1, a2);
 

@@ -46,6 +46,7 @@ void OnPostInitGameAssets(void_cgame_handler_t handler) {
     hooks_iga_post.push_back(handler);
 }
 
-void DebugPrintCallback(const char *buffer) {
+/*
+void DebugPrintCallback(const char* buffer) {
     printf(buffer);
-}
+}*/

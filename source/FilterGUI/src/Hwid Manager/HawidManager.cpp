@@ -141,7 +141,7 @@ const char* HawidManager::GetPcName()
 
 std::string HawidManager::Xor(std::string data) {
 
-    char key[63] = { 'n', 'a', 'z', 't', 'y', 't', 'o', 'a', 'r', 'n', 'v', 'z', 'r', 'm', 'e', 'n', '1', '2', '3', '4', '5', '6', '7', '8', 'v', 'b', 'r', 'g', 'e', 'a', '1', 'r', 'z', '4', '5', 'g', '7', 'u','n', 'a', 'z', 't', 'y', 't', 'o', 'a', 'r', 'n', 'v', 'z', 'r', 'm', 'e', 'n', '1', '2', '3', '4', '5', '6', '7', '8', 'v' };
+    char key[128] = { 'd', '=', 'V', 'T', 'T', '!', 'G', '-', 'v', 'q', '9', 'P', '-', 'z', '4', 'z', '$', '!', 'a', 'C', 'x', 'c', 'S', '$', ';', 'S', 'u', 'j', '-', '7', 'v', 'a', '`', 'n', 'N', '3', '}', 'R', 'J', '(', 'f', '[', 'R', '=', 'K', 'f', 'R', 'k', 'D', 'a', 'R', '4', '.', 'n', '^', 'R', 'a', '<', '{', '$', '}', 'K', 'e', 'q', 'X', '9', 'M', 'Y', '4', 'x', 'e', ';', '?', 's', 'p', 'M', 's', '4', '=', 'Y', ')', '/', 'F', '}', 'G', '[', 'q', '(', 'N', '+', 'P', 'Y', '@', 'L', '>', 'k', 'e', '<', 'b', '6', 'q', 'e', ':', 't', '<', '4', 'L', 'q', 'g', '6', 'Y', ']', ';', '?', 'q', 'r', 'A', 'V', 'M', ')', 'p', '7', 'c', '{', 'u', '8', 'U', '/' };
 
     std::string output = data;
 
@@ -153,21 +153,35 @@ std::string HawidManager::Xor(std::string data) {
 
 const char* HawidManager::GetHWID()
 {
-    //unsigned short CpuHash = HawidManager::getCpuHash();
+    unsigned short CpuHash = HawidManager::getCpuHash();
+    std::stringstream cpuhash;
+    cpuhash << CpuHash;
+
+    std::string hwidinfo = getHWID();
+    std::stringstream hwidhash;
+    hwidhash << hwidinfo;
     //unsigned short VolumeHash = HawidManager::getVolumeHash();
-    const char* mac = HawidManager::GetMac();
-    //const char* PcName = HawidManager::GetPcName();
+    //const char* mac = HawidManager::GetMac();
+    const char* PcName = HawidManager::GetPcName();
     //const char* Serial = HawidManager::GetSerial();
     const char* enc2 = "WSAStart";
     //std::stringstream ss;
     //ss << CpuHash;
     //ss << VolumeHash;
-    char* finalBuffer = (char*)malloc(strlen(getHWID().c_str()) + strlen(mac) + strlen(enc2));
-    sprintf(finalBuffer, "%s%s%s", getHWID().c_str(), mac, enc2);
+    //char* finalBuffer = (char*)malloc(strlen(getHWID().c_str()) + strlen(mac) + strlen(enc2));
+    //sprintf(finalBuffer, "%s%s%s", getHWID().c_str(), mac, enc2);
 
+    char* finalBuffer = (char*)malloc(strlen(hwidhash.str().c_str()) + strlen(PcName) + strlen(cpuhash.str().c_str())+strlen(enc2));
+    sprintf(finalBuffer, "%s-%s-%s-%s", hwidhash.str().c_str(), PcName, cpuhash.str().c_str(), enc2);
+
+    /*
     std::string HWID = finalBuffer;
+    cout << HWID << std::endl;*/
+
+  
     //cout << L"HWID " << HWID.c_str() << L" <Length> " << HWID.length() << std::endl;
     //std::cout << "GetCPUID() " << GetCPUID() << " Len " << GetCPUID().length() << std::endl;
+    //std::cout << "Cpu Hash " << CpuHash << " Volume Hash " << VolumeHash<< " Mac "  << mac << " PcName " <<PcName<< " Serial  " << Serial<< std::endl;
 
     return finalBuffer;
 }

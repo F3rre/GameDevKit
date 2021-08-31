@@ -21,6 +21,7 @@
 #include <IFflorian0Guide.h>
 #include <IFNotify.h>
 #include "EventMenu/IFBFilterEventMenu.h"
+#include "CharMenu/IFBFilterCharacterMenu.h"
 
 class CIFMainMenu : public CIFMainFrame
 {
@@ -124,5 +125,6 @@ public:
     static CIFNotify* PurbleNoitfy;
     static CIFNotify* OrangeNoitfy;
     static CIFEventMenu* EventMenu;
+    static CIFCharacterMenu* CharMenu;
 
 };

@@ -35,6 +35,7 @@ private:
     char pad_082C[32]; //0x082C
     std::n_wstring m_charname; //0x084C
 public:
+
     unsigned char m_level; //0x0868 level of your character, crashes when set too high
 private:
     char pad_0869[7]; //0x0869

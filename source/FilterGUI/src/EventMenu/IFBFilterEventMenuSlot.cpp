@@ -2,6 +2,7 @@
 #include <GInterface.h>
 #include <ClientNet\MsgStreamBuffer.h>
 #include "MainMenu/IFBFilterMainMenu.h"
+#include <GEffSoundBody.h>
 
 GFX_IMPLEMENT_DYNCREATE(CIFEventMenuSlot, CIFWnd)
 GFX_BEGIN_MESSAGE_MAP(CIFEventMenuSlot, CIFWnd)
@@ -38,21 +39,26 @@ int CIFEventMenuSlot::OnMouseLeftUp(int a1, int x, int y)
 	CIFMainMenu::EventMenu->ClearDDJ();
 	//CIFMainMenu::ChestGUI->SelectedItemName = m_custom_label2->GetNText();
 	TB_Func_13("interface\\ifcommon\\com_bar01select_mid.ddj", 0, 0);
-	if (m_custom_label1->GetNText() == L"Event 1")
+	if (m_custom_label1->GetNText() == L"Random PVP Event")
 	{
-		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Bölüme Event 1'in tanýmý gelecektir\nÖrnek tanýtým satýrý 1\nÖrnek tanýtým satýrý 2\nÖrnek tanýtým satýrý 3");
+		CIFMainMenu::EventMenu->SelectedEventName = m_custom_label1->GetNText();
+		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Event'te takým renginizi\nseçemezsiniz.\nKarakterinize uygun\nherhangi bir takým verilir.\nEvent tek takým kazanana kadar\ndevam eder.\nEvent'i kazanan takým\npuan ve ödül almaya hak kazanýr.\nKaybeden takýmlarýn ise\npuanlarý düþer.");
+		//CGEffSoundBody::get()->PlaySound(L"snd_event_01");
 	}
-	if (m_custom_label1->GetNText() == L"Event 2")
+	if (m_custom_label1->GetNText() == L"Random Guild PVP Event")
 	{
-		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Bölüme Event 2'in tanýmý gelecektir\nÖrnek tanýtým satýrý 1\nÖrnek tanýtým satýrý 2\nÖrnek tanýtým satýrý 3");
+		CIFMainMenu::EventMenu->SelectedEventName = m_custom_label1->GetNText();
+		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Event'te Guild liderleri kayýt yaptýrabilirler.\nGuild'e 4 takýmdan birisinin rengi verilir.\nEvent tek takým kalana kadar devam eder.\nEvent'i kazanan takýmýn Guild liderlerine\nGuild üyeleri için kullanabilecekleri ödüller\nve Guild'e ek puan  verilir.\nKaybeden takýmlardaki Guildlerin ise\n puaný düþer.");
 	}
-	if (m_custom_label1->GetNText() == L"Event 3")
+	if (m_custom_label1->GetNText() == L"PVP Event")
 	{
-		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Bölüme Event 3'in tanýmý gelecektir\nÖrnek tanýtým satýrý 1\nÖrnek tanýtým satýrý 2\nÖrnek tanýtým satýrý 3");
+		CIFMainMenu::EventMenu->SelectedEventName = m_custom_label1->GetNText();
+		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Event'te kendi takým renginizi\nseçebilirsiniz.\nEvent baþladýðýnda\nseçtiðiniz takýmýn renginde gözükürsünüz\nve takýmýnýz ile kazanmak için\nçabalayabilirsiniz.\nGalip takým, Event ödülü ve puan kazanýr.\nYenilen takýmlarýn puaný eksilir.");
 	}
-	if (m_custom_label1->GetNText() == L"Event 4")
+	if (m_custom_label1->GetNText() == L"Guild Pvp Event")
 	{
-		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Bölüme Event 4'in tanýmý gelecektir\nÖrnek tanýtým satýrý 1\nÖrnek tanýtým satýrý 2\nÖrnek tanýtým satýrý 3");
+		CIFMainMenu::EventMenu->SelectedEventName = m_custom_label1->GetNText();
+		CIFMainMenu::EventMenu->EventText->SetText(L"Bu Event'te sadece Guild liderleri\nkayýt yaptýrabilir.\nGuild'inize seçtiðiniz\ntakýmýn rengi verilir.\nEvent, sadece\ntek takým kalana kadar devam eder.\nEvent'i kazanan takýmýn Guild liderlerine\nGuild için kullanabileceði ödüller ve\nGuild'e ek puan verilir.\nKaybeden takýmlardaki\nGuildlerin puanlarý düþer.");
 	}
 	if (m_custom_label1->GetNText() == L"Event 5")
 	{

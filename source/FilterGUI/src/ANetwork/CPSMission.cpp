@@ -20,16 +20,16 @@
 bool CPSMission::char_is_ready;
 BYTE CPSMission::CurHawn = -1;
 
-bool CPSMission::Gui_GrantName;
-bool CPSMission::Gui_UniqueHistory;
-bool CPSMission::Gui_CustomTitle;
-bool CPSMission::Gui_SwitchTitle;
-bool CPSMission::Gui_EventTimer;
-bool CPSMission::Gui_CharacterLock;
-bool CPSMission::Gui_CustomRank;
-bool CPSMission::Gui_ColorsRender;
-bool CPSMission::Gui_GlobalColors;
-
+bool CPSMission::Gui_GrantName = true;
+bool CPSMission::Gui_UniqueHistory = true;
+bool CPSMission::Gui_CustomTitle = true;
+bool CPSMission::Gui_SwitchTitle = true;
+bool CPSMission::Gui_EventTimer = true;
+bool CPSMission::Gui_CharacterLock = true;
+bool CPSMission::Gui_CustomRank = true;
+bool CPSMission::Gui_ColorsRender = true;
+bool CPSMission::Gui_GlobalColors=true;
+using namespace std;
 bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 
     switch (msg->msgid())
@@ -74,7 +74,7 @@ bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
                 // Check if new zone has been triggered
                 if (DiscordManager::Instance().m_IsRegionChange)
                 {
-                    DiscordManager::Instance(). m_IsRegionChange = false;
+                    DiscordManager::Instance().m_IsRegionChange = false;
                     DiscordManager::Instance().UpdateState();
                 }
                 // Read packet
@@ -345,7 +345,7 @@ bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 
 
 		int FormID = 0;
-		bool ShowHide = 0;
+		int ShowHide = 0;
 		*msg >> FormID >> ShowHide;
 
 		switch (FormID)
@@ -420,7 +420,7 @@ bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 
 		if (Type == 4)
 		{
-			CIFMainMenu::PurbleNoitfy->ShowMessage(Convert(notice));
+			CIFMainMenu::OrangeNoitfy->ShowMessage(Convert(notice));
 		}
 
 		if (Type == 5)
@@ -484,6 +484,14 @@ bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 
 			CIFMainMenu::PurbleNoitfy->ShowMessage(strmsg.c_str());
 		}
+
+		msg->FlushRemaining();
+	}
+	if (msg->msgid() == 0x3131)
+	{
+		int test;
+		*msg >> test;
+		printf("test %x %u %d",test ,test,test);
 
 		msg->FlushRemaining();
 	}
@@ -1071,7 +1079,7 @@ bool CPSTitle::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 			v237 = 220;
 		}
 
-
+		//cout << hwid_1.c_str() << std::endl;
 		CMsgStreamBuffer packet(0x1789);
 
 		if (!hwid_1.empty())
@@ -1109,7 +1117,6 @@ bool CPSTitle::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 			
 			//packet << std::n_string(hwid_1);
 			packet << std::n_string(hwid_1.c_str());
-
 			SendMsg(packet);
 			//ShowMessage(L"You are authorized to login in try now", 0xfc3103);
 
@@ -1159,10 +1166,10 @@ bool CPSCharacterSelect::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 	    byte action; *msg >> action;
 
         //place for char info :P
-		/*CIFWnd* Info = this->m_IRM.GetResObj<CIFWnd>(18, 1);
-		CIFStatic* Cancle = this->m_IRM.GetResObj<CIFStatic>(13, 1);
-		Info->MoveGWnd(Cancle->GetPos().x - 160, Cancle->GetPos().y - 170);
-		this->ShowMessage(L"© B-Filter", 0xfc3103);*/
+		CIFWnd* Info = this->m_IRM.GetResObj<CIFWnd>(18, 1);
+		//CIFStatic* Cancle = this->m_IRM.GetResObj<CIFStatic>(13, 1);
+		Info->MoveGWnd(10, 120);
+		this->ShowMessage(L"SroBro Team", 0x00c3fd);
         // Update on character list display
         if (action == 2)
         {
