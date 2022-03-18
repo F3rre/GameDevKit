@@ -71,11 +71,11 @@ void CIFPlayerChestSlot::WriteLine(const wchar_t* ItemName, const wchar_t* Count
     m_custom_label4->SetText(From);
     m_custom_label5->SetText(Date);
 }
-
+/*
 int CIFPlayerChestSlot::OnMouseLeftUp(int a1, int x, int y)
 {
     CIFMainMenu::ChestGUI->ClearDDJ();
     CIFMainMenu::ChestGUI->SelectedItemName = m_custom_label2->GetNText();
     TB_Func_13("interface\\ifcommon\\com_bar01select_mid.ddj", 0, 0);
     return 0;
-}
+}*/

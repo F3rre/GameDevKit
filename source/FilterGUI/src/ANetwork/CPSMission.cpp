@@ -32,7 +32,7 @@ bool CPSMission::Gui_GlobalColors=true;
 using namespace std;
 bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 
-    switch (msg->msgid())
+    /*switch (msg->msgid())
     {
 		// SERVER_ENVIROMENT_CELESTIAL_POSITION
         case 0x3020: {      
@@ -99,7 +99,7 @@ bool CPSMission::OnServerPacketRecv(CMsgStreamBuffer* msg) {
             DiscordManager::Instance().UpdateState();
         }
         break;
-    }
+    }*/
 	/// ORG PACKETS
 	/*if (msg->msgid() == 0x3305)
 	{
@@ -1060,7 +1060,7 @@ bool CPSTitle::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 
 	switch (msg->msgid()) {
 
-	case 0x0FF2: // SERVER_SHARD_LIST_RESPONSE = 0xA101 but coded
+	/**case 0x0FF2: // SERVER_SHARD_LIST_RESPONSE = 0xA101 but coded
 	{
 		const char* hwid = HawidManager::GetHWID();
 		std::string hwid_X = HawidManager::Xor(hwid);
@@ -1123,7 +1123,7 @@ bool CPSTitle::OnServerPacketRecv(CMsgStreamBuffer* msg) {
 		}
 		DiscordManager::Instance().UpdateState(GAME_STATE::SERVER_SELECTION);
 	}
-	break;
+	break;*/
 	}
 
 	if (msg->msgid() == 0xB003) //notice
